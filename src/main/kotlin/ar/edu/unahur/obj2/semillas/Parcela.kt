@@ -33,4 +33,5 @@ class Parcela(var ancho:Double,var largo:Double,var horasSol: Double, var planta
         plantas.add(planta);
     }
 
+
 }

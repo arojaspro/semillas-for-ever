@@ -5,7 +5,7 @@ import io.kotest.matchers.booleans.shouldBeFalse
 import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.shouldBe
 
-class SemillasTest : DescribeSpec ({
+class SemillasTest : DescribeSpec({
     // hay una clase Planta que tiene por atributos
     // anioSemilla, altura
     describe("Creación de las plantas") {
@@ -42,6 +42,21 @@ class SemillasTest : DescribeSpec ({
                 mentita.espacio()
             ).sum()
             Math.ceil(superficie).shouldBe(4)
+        }
+    }
+})
+
+class ParcelaTest : DescribeSpec({
+
+    describe("Inicializamos parcela") {
+        val menta = Menta(1.0, 2021)
+        val mentita = Menta(0.3, 2021)
+        val soja = Soja(0.6, 2009)
+        var plantas = mutableListOf<Planta>(menta, mentita, soja)
+        var classParcela = Parcela(10.0, 20.0, 8.0, plantas)
+
+        it("Verifico si tiene complicaciones"){
+           classParcela.tieneComplicaciones().shouldBeTrue()
         }
     }
 })

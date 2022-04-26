@@ -3,68 +3,68 @@ package ar.edu.unahur.obj2.semillas
 class Menta(altura: Double, anioSemilla: Int) : Planta(altura, anioSemilla) {
 
     override fun espacio(): Double {
-        return super.altura + 1;
+        return super.altura + 1
     }
 
     override fun daSemillas(): Boolean {
-        var alturaMenta = super.altura > 0.4;
+        val alturaMenta = super.altura > 0.4
         if (alturaMenta || esFuerte()) {
-            return true;
+            return true
         }
-        return false;
+        return false
     }
 
     override fun parcelaIdeal(parcela: Parcela): Boolean {
-        if(parcela.superficie() > 6){
-            return true;
+        if (parcela.superficie() > 6) {
+            return true
         }
-        return false;
+        return false
     }
 }
 
 class MentaPeperina(altura: Double, anioSemilla: Int) : Planta(altura, anioSemilla) {
 
     override fun espacio(): Double {
-        return super.altura * 2;
+        return super.altura * 2
     }
 
     override fun daSemillas(): Boolean {
-        var alturaMenta = super.altura > 0.4;
+        val alturaMenta = super.altura > 0.4
         if (alturaMenta || esFuerte()) {
-            return true;
+            return true
         }
-        return false;
+        return false
     }
 
     override fun parcelaIdeal(parcela: Parcela): Boolean {
-        if(parcela.superficie() > 6){
-            return true;
+        if (parcela.superficie() > 6) {
+            return true
         }
-        return false;
+        return false
     }
 }
 
 class Soja(altura: Double, anioSemilla: Int) : Planta(altura, anioSemilla) {
 
     override fun espacio(): Double {
-        return super.altura / 2;
+        return super.altura / 2
     }
 
     override fun daSemillas(): Boolean {
-        var segundaCondicion = (super.altura > 0.75 && super.altura < 0.9) && (anioSemilla > 2007);
+        val segundaCondicion = (super.altura > 0.75 && super.altura < 0.9) && (anioSemilla > 2007)
         if (esFuerte() || segundaCondicion) {
-            return true;
+            return true
         }
-        return false;
+        return false
     }
 
     override fun horasSol(): Double {
         if (super.altura < 0.5) {
-            return 6.0;
+            return 6.0
         } else if (super.altura > 0.5 && super.altura < 1) {
-            return 8.0;
+            return 8.0
         } else {
-            return 12.0;
+            return 12.0
         }
     }
 
@@ -75,20 +75,20 @@ class Soja(altura: Double, anioSemilla: Int) : Planta(altura, anioSemilla) {
 
 class SojaTransgenica(altura: Double, anioSemilla: Int) : Planta(altura, anioSemilla) {
     override fun espacio(): Double {
-        return super.altura / 2;
+        return super.altura / 2
     }
 
     override fun daSemillas(): Boolean {
-        return false;
+        return false
     }
 
     override fun horasSol(): Double {
         if (super.altura < 0.5) {
-            return 6.0;
+            return 6.0
         } else if (super.altura > 0.5 && super.altura < 1) {
-            return 8.0;
+            return 8.0
         } else {
-            return 12.0;
+            return 12.0
         }
     }
 
@@ -98,6 +98,7 @@ class SojaTransgenica(altura: Double, anioSemilla: Int) : Planta(altura, anioSem
 }
 
 class Quinoa(altura: Double, anioSemilla: Int) : Planta(altura, anioSemilla) {
+
     override fun espacio(): Double {
         return super.espacio()
     }
@@ -110,19 +111,19 @@ class Quinoa(altura: Double, anioSemilla: Int) : Planta(altura, anioSemilla) {
     }
 
     override fun daSemillas(): Boolean {
-        return (super.anioSemilla > 2001 && super.anioSemilla < 2008) || esFuerte();
+        return (super.anioSemilla > 2001 && super.anioSemilla < 2008) || esFuerte()
     }
 
     override fun parcelaIdeal(parcela: Parcela): Boolean {
-        var plantas = parcela.plantas.iterator();
+        val plantas = parcela.plantas.iterator()
 
-        while(plantas.hasNext()) {
-            var planta:Planta = plantas.next();
-            if(planta.altura > 1.5) {
-                return false;
+        while (plantas.hasNext()) {
+            val planta: Planta = plantas.next()
+            if (planta.espacio() > 1.5) {
+                return false
             }
         }
-        return true;
+        return true
     }
 }
 

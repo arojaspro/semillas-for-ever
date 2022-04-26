@@ -7,19 +7,19 @@ open class Planta(var altura: Double, val anioSemilla: Int) {
     }
 
     open fun horasSol(): Double {
-        return 7.0;
+        return 7.0
     }
 
     open fun esFuerte(): Boolean {
-        return horasSol() > 9.0;
+        return horasSol() > 9.0
     }
 
     open fun daSemillas(): Boolean {
-        return esFuerte();
+        return esFuerte()
     }
 
     open fun parcelaIdeal(parcela: Parcela): Boolean {
-        return true;
+        return true
     }
 
     open fun parcelaEcologica(parcela: Parcela): Boolean {
